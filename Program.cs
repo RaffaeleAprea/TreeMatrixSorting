@@ -10,6 +10,8 @@ namespace sortingMatrix
     {
         static void Main(string[] args)
         {
+                                                /***** TEST DATA *****/
+
             List<List<string>> Nodes = new List<List<string>> ();
             Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
             Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
@@ -33,14 +35,15 @@ namespace sortingMatrix
             Nodes[8][0] = "h01"; Nodes[8][1] = "d01";  Nodes[8][2] = "d01";  Nodes[8][3] = "x-9";
             Nodes[9][0] = "h01"; Nodes[9][1] = "g01";  Nodes[9][2] = "f01";  Nodes[9][3] = "x-2";
 
-      
 
 
+                                            /***** DATA & RESULT VISUALIZATION *****/
             for (int i=0; i <10; i++)
             {
                 Console.WriteLine(String.Format("{0} {1} {2} {3}", Nodes[i][ 0], Nodes[i][ 1], Nodes[i][ 2], Nodes[i][3]));
             }
             Console.WriteLine("");
+
             MatrixColumnSorting(0, 9, ref Nodes,0, new List<int>(),4);
             Console.ReadLine();
             for (int i = 0; i < 10; i++)
@@ -50,15 +53,22 @@ namespace sortingMatrix
             Console.ReadLine();
         }
 
-        private static void MatrixColumnSorting(int firstIndex, int lastIndex, ref List<List<string>> Nodes, int colFixed, List<int> blackList,int matrixColNumber)
+        private static void MatrixColumnSorting(
+                                                    int firstIndex,
+                                                    int lastIndex,
+                                                    ref List<List<string>> Nodes,
+                                                    int colFixed,
+                                                    List<int> blackList,
+                                                    int matrixColNumber
+                                                )
         {
-            List<string> list = new List<string>();
-            Dictionary < string ,List<int>> list0 = new Dictionary<string, List<int> > ();
-            List<string> temp_row = new List<string>();
+            List<string> list                           = new List<string>();
+            Dictionary < string ,List<int>> list0       = new Dictionary<string, List<int> > ();
+            List<string> temp_row                       = new List<string>();
 
             
-            int firstIndex2 = firstIndex;
-            int lastIndex2 = firstIndex2;
+            int firstIndex2          = firstIndex;
+            int lastIndex2           = firstIndex2;
 
             list.Add((Nodes[firstIndex])[colFixed]);
             list0.Add((Nodes[firstIndex])[colFixed],new List<int> { 0,0 });
@@ -69,25 +79,21 @@ namespace sortingMatrix
                 
                 for (int row = firstIndex; row <= lastIndex; row++)
                 {
-                    //if (matrixColNumber > colFixed)  // && (!(blackList.Contains(row))  
-                    //{
+                    /* && (!(blackList.Contains(row))  */
                         if (list.Contains((Nodes[row])[colFixed]))
                         {
-
                             if ((row > lastIndex2) && ((Nodes[row])[colFixed].Equals(list[elem])))
                             {
-                                
                                 lastIndex2++;
                                 if (row > lastIndex2)
-                                {
-                                   // for (; blackList.Contains(lastIndex2); lastIndex2++) ; //avoiding to point void cells of the matrix
+                                {   
+                                /*avoiding to point void cells of the matrix*/
+                                /* for (; blackList.Contains(lastIndex2); lastIndex2++) ; */
                                 }
-
                                 /*Swap*/
                                 temp_row = Nodes[row];
-                                Nodes[row] = Nodes[lastIndex2];  //dovrebbe funzionare anche per un'identità
+                                Nodes[row] = Nodes[lastIndex2];  
                                 Nodes[lastIndex2] = temp_row;
-
                             }
                         }
                         else
@@ -95,44 +101,25 @@ namespace sortingMatrix
                             if (row > lastIndex2)
                             {
                                 list.Add((Nodes[row])[colFixed]);
-
                                 list0.Add((Nodes[row])[colFixed], new List<int> { 0, 0 });
                             }
                         }
-                    //}
-                    //else
-                    //{
-                    //    //blackList.Add(row);
-                    //}
+                    /*
+                    else
+                    {
+                    //blackList.Add(row);
+                    }*/
                 }
-    
-                     list0[list[elem]][1] = lastIndex2;
-
-                    //lastIndex2++;
+                    list0[list[elem]][1] = lastIndex2;
                     firstIndex2 = lastIndex2 + 1;
-
-                //Console.WriteLine(list.Count);
-            }
-            foreach (string elem in list0.Keys)
-            {
-               // Console.WriteLine(elem + "= > " +list0[elem][0] + " ; " + list0[elem][1]);
-
             }
             
             foreach (string elem in list0.Keys)
             {
-               
-                if (( colFixed+1<matrixColNumber) && (list0[elem][0] < list0[elem][1]))//((matrixRowIndex > colFixed) && (list0[elem][0] < list0[elem][1]))
-                {
-                    //Console.WriteLine(list0[elem][0]+ " ; "+ list0[elem][1]);
-                    MatrixColumnSorting(list0[elem][0], list0[elem][1], ref Nodes, colFixed + 1, blackList, matrixColNumber);
-                }
-            }
-            //foreach (int elem in blackList)
-            //{
-            //    Console.WriteLine("black :" + elem );
+                if (( colFixed + 1 < matrixColNumber) && (list0[elem][0] < list0[elem][1]))  
 
-            //}
+                    MatrixColumnSorting(list0[elem][0], list0[elem][1], ref Nodes, colFixed + 1, blackList, matrixColNumber);  
+            }
         }
     }
 }
