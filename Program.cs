@@ -23,32 +23,37 @@ namespace sortingMatrix
             Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
             Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
             Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
+            Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
+            Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
+            Nodes.Add(new List<string> { "aaa", "aaa", "aaa", "aaa" });
 
-            Nodes[0][0] = "h01"; Nodes[0][1] = "g01";  Nodes[0][2] = "x-1";  Nodes[0][3] = "###";
-            Nodes[1][0] = "h01"; Nodes[1][1] = "a01";  Nodes[1][2] = "d01";  Nodes[1][3] = "x-2";
-            Nodes[2][0] = "h02"; Nodes[2][1] = "a02";  Nodes[2][2] = "x-3";  Nodes[2][3] = "###";
-            Nodes[3][0] = "h01"; Nodes[3][1] = "g01";  Nodes[3][2] = "f01";  Nodes[3][3] = "x-1";
-            Nodes[4][0] = "h01"; Nodes[4][1] = "g01";  Nodes[4][2] = "x-3";  Nodes[4][3] = "###";
-            Nodes[5][0] = "h02"; Nodes[5][1] = "d01";  Nodes[5][2] = "d01";  Nodes[5][3] = "x-1";
-            Nodes[6][0] = "h01"; Nodes[6][1] = "d02";  Nodes[6][2] = "x-9";  Nodes[6][3] = "###";
-            Nodes[7][0] = "h02"; Nodes[7][1] = "a01";  Nodes[7][2] = "x-8";  Nodes[7][3] = "###";
-            Nodes[8][0] = "h01"; Nodes[8][1] = "d01";  Nodes[8][2] = "d01";  Nodes[8][3] = "x-9";
-            Nodes[9][0] = "h01"; Nodes[9][1] = "g01";  Nodes[9][2] = "f01";  Nodes[9][3] = "x-2";
+            Nodes[0][0]  = "h01"; Nodes[0][1]  = "g01";  Nodes[0][2] = "x-1";  Nodes[0][3] = "###";
+            Nodes[1][0]  = "h03"; Nodes[1][1]  = "d01";  Nodes[1][2] = "d01";  Nodes[1][3] = "x-2";
+            Nodes[2][0]  = "h02"; Nodes[2][1]  = "a01";  Nodes[2][2] = "x-3";  Nodes[2][3] = "###";
+            Nodes[3][0]  = "h03"; Nodes[3][1]  = "g01";  Nodes[3][2] = "f01";  Nodes[3][3] = "x-1";
+            Nodes[4][0]  = "h01"; Nodes[4][1]  = "b01";  Nodes[4][2] = "x-3";  Nodes[4][3] = "###";
+            Nodes[5][0]  = "h02"; Nodes[5][1]  = "d01";  Nodes[5][2] = "d01";  Nodes[5][3] = "x-1";
+            Nodes[6][0]  = "h01"; Nodes[6][1]  = "d02";  Nodes[6][2] = "x-9";  Nodes[6][3] = "###";
+            Nodes[7][0]  = "h03"; Nodes[7][1]  = "a01";  Nodes[7][2] = "x-8";  Nodes[7][3] = "###";
+            Nodes[8][0]  = "h01"; Nodes[8][1]  = "d02";  Nodes[8][2] = "d01";  Nodes[8][3] = "x-9";
+            Nodes[9][0]  = "h02"; Nodes[9][1]  = "g01";  Nodes[9][2] = "f01";  Nodes[9][3] = "x-2";
+            Nodes[10][0] = "h02"; Nodes[10][1] = "a01"; Nodes[10][2] = "x-8"; Nodes[10][3] = "###";
+            Nodes[11][0] = "h01"; Nodes[11][1] = "d01"; Nodes[11][2] = "d01"; Nodes[11][3] = "x-9";
+            Nodes[12][0] = "h02"; Nodes[12][1] = "g01"; Nodes[12][2] = "f01"; Nodes[12][3] = "x-2";
 
 
-
-                                            /***** DATA & RESULT VISUALIZATION *****/
-            for (int i=0; i <10; i++)
+            /***** DATA & RESULT VISUALIZATION *****/
+            for (int i=0; i <13; i++)
             {
-                Console.WriteLine(String.Format("{0} {1} {2} {3}", Nodes[i][ 0], Nodes[i][ 1], Nodes[i][ 2], Nodes[i][3]));
+                Console.Out.WriteLine(String.Format("{0} {1} {2} {3}", Nodes[i][ 0], Nodes[i][ 1], Nodes[i][ 2], Nodes[i][3]));
             }
             Console.WriteLine("");
 
-            MatrixColumnSorting(0, 9, ref Nodes,0, new List<int>(),4);
+            MatrixColumnSorting(0, 12, ref Nodes,0, new List<int>(),4);
             Console.ReadLine();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 13; i++)
             {
-                Console.WriteLine(String.Format("{0} {1} {2} {3}", Nodes[i][0], Nodes[i][1], Nodes[i][2], Nodes[i][3]));
+                Console.Out.WriteLine(String.Format("{0} {1} {2} {3}", Nodes[i][0], Nodes[i][1], Nodes[i][2], Nodes[i][3]));
             }
             Console.ReadLine();
         }
