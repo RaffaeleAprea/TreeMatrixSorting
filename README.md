@@ -55,52 +55,7 @@ The Output of the Routine will be this
  on right side of matrix, for instance "x-1", "x-2", etc..) with given ancestors nodes.
  Doing so, it is easier to look up the list of ancestors.
 
- The next step is to just rewrite this output so that it turns into this
-
- 	h01 
-		g01 
-			x-1 
-
-	    b01 
-			x-3 
-
-	    d02 
-			x-9 
-	
-	        d01
-				x-9
-	
-	    d01 
-			d01 
-				x-9
-
-	h03 a01 
-			x-8 
-	
-	    g01 
-			f01 
-				x-1
-
-	    d01 
-			d01 
-				x-2
-	
-	    a01 
-			x-3 
-
-	h02 a01 
-			x-8 
-	
-	    g01 
-			 f01 
-			     x-2
-
-			     x-2
-
-	    d01 
-		     d01 
-			     x-1
-
+ 
 
 
  The main assumption  is that all same generation "brother" elements are unique, so 
