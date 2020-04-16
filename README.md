@@ -104,7 +104,7 @@ The Output of the Routine will be this
 
 
  The main assumption  is that all same generation "brother" elements are unique, so 
- that the recurring names in a column group refer to the same item
+ that the recurring names in a column group refer to the same item.
 
 
 	  
